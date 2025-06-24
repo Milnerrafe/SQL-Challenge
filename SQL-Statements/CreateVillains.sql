@@ -3,7 +3,7 @@ DELETE FROM Villains;
 -- In order so we can read it
 INSERT INTO Villains(TeamName, RealName, VillainName, Abilities, Status)
 VALUES("Team 1", "Smokington", "Smokey", "Invisibility, Morph into shadows, Immaterial", "Active"),
-	  ("????", "Frank Horrigan", "Frank Horrigan", "Mutated Human, Bullet Immunity, Armoured Skin, Uses Plasma Blades, Super Strength, Loves to crush things", "Active"),
+	("????", "Frank Horrigan", "Frank Horrigan", "Mutated Human, Bullet Immunity, Armoured Skin, Uses Plasma Blades, Super Strength, Loves to crush things", "Active"),
       ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Active"),
       ("Team 2", "????", "Rat Run", "Can move at super speed, but only if no one can see him. At his strongest in total darkness.", "Active"),
       ("Team 2", "Candice", "Nuclear Palm", "Close-range specialist. If one hand is tied behind her back, her other palm can deliver high impact strikes.", "Active"),
