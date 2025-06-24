@@ -48,10 +48,13 @@ def index():
     return 'hello world'
 
 
-@app.route('/api/setup')
+@app.route('/api/setup', methods=['POST'])
 def setup():
 
     json_data = request.get_json()
+
+    if not json_data:
+        return jsonify({'error': 'No JSON received'}), 400
 
     host = json_data.get('host')
     username = json_data.get('username')
@@ -61,21 +64,17 @@ def setup():
     cur = con.cursor()
     cur.execute(f"""
         INSERT INTO maindb
-        VALUES (mysqlhost, {host},);
+        VALUES ('mysqlhost', '{host}');
         INSERT INTO maindb
-        VALUES (mysqlusername, {username},);
+        VALUES ('mysqlusername', '{username}');
         INSERT INTO maindb
-        VALUES (mysqlpassword, {password},);
+        VALUES ('mysqlpassword', '{password}');
         """)
     con.commit()
     con.close()
 
-
-    if not json_data:
-        return jsonify({'error': 'No JSON received'}), 400
-
     makedb()
-    return 'hello world'
+    return 'success'
 
 
 
