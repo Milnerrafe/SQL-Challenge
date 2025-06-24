@@ -8,7 +8,7 @@ VALUES(1, "Sarah Lockingham", "Software Engineer", 28, "Female", "The observator
 	(3, "Erik Darkstone", "Fry Cook", 17, "Male", "I tried running away, I can’t afford my health insurance premiums going up anymore if I got hurt, but the lady rescuing the criminals was too damn awesome. One of the guys took my shoe."),
 	(3, "Sonny Blair", "Forgerer", 22, "Other", "I didn’t see anything, I was just there to get my passport renewed."),
 	(3, "Frankie Hare", "Not Given", 33, "Male", "Hello World"),
-	(4, "Sophia Berkavich", "Bariester", 25, "Female", "I know they said disco’s dead, but this is ridiculous!"),
+	(4, "Sophia Berkavich", "Barrister", 25, "Female", "I know they said disco’s dead, but this is ridiculous!"),
 	(4, "Sonya Texas", "Influencer", 31, "Female", "I was filming my next tick tock video when I saw my own back up dancers had been replaced those freaks! They hit their marks so I fired my other dancers and gave the zombies part time at $12/hour. Can you believe they bit me at my offer!"),
 	(4, "Hank Clyde", "Propane Salesman", 64, "Male", "I didn’t see much, I’ve learnt to run away from any kooky sci-fi fantasy nonsense I see"),
 	(5, "Victor Diabolus", "Medical Researcher", 59, "Male", "It was mine to use as I saw fit"),
