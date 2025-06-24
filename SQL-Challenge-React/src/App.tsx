@@ -1,14 +1,10 @@
 import "./App.scss";
-import { Button } from "@carbon/react";
-
-function Testbutton() {
-  return <Button>Example usage</Button>;
-}
+import Mainview from "./mainview.tsx";
 
 function App() {
   return (
     <>
-      <Testbutton></Testbutton>
+      <Mainview heading="Mission Briefing"></Mainview>
     </>
   );
 }
