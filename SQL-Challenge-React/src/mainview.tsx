@@ -1,5 +1,5 @@
 import "./App.scss";
-import { Button, Heading } from "@carbon/react";
+import { Button, Heading, TextInput } from "@carbon/react";
 
 function Mainview({ heading }: { heading: string }) {
   return (
@@ -42,6 +42,29 @@ function Mainview({ heading }: { heading: string }) {
           use ChatGPT, then the world will explode and you’ll be out of a job,
           so don’t do that. Good luck!
         </p>
+
+        <TextInput
+          type="text"
+          required
+          id="dbhost"
+          labelText="DB - Host Ip"
+          className="mainboxcenter"
+        />
+
+        <TextInput
+          type="username"
+          required
+          id="dbusername"
+          labelText="DB - Username"
+          className="mainboxcenter"
+        />
+        <TextInput
+          type="password"
+          required
+          id="dbpassword"
+          labelText="DB - Password"
+          className="mainboxcenter"
+        />
 
         <div className="mainboxcenter">
           <Button className="boxbottombuttons">Back</Button>
