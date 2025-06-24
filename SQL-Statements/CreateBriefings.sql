@@ -10,7 +10,7 @@ VALUES( 1, "Observatory, New York",
         "2015-01-08"),
         
         ( 3, "EU Embassy, Texas",
-		"Three men were caught jay walking infront fo the EU embassy. Not wanting to seem weak in front of their foreign allies, the local sheriff authorised a military strike team to apprehend the villains. A fourth individual arrived and immobolised the strike team, and released the three caught men. Twenty soldiers were assigned to bed rest, with injuries spanning from booboos to ouchies. Three helicopers, one tank, and the pride of the american military, eviscerated",
+		"Three men were caught jay walking infront of the EU embassy. Not wanting to seem weak in front of their foreign allies, the local sheriff authorised a military strike team to apprehend the villains. A fourth individual arrived and immobolised the strike team, and released the three caught men. Twenty soldiers were assigned to bed rest, with injuries spanning from booboos to ouchies. Three helicopers, one tank, and the pride of the american military, eviscerated",
         "2015-01-08"),
         
         ( 4, "New York Central Cemetary, New York",

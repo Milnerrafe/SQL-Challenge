@@ -21,7 +21,7 @@ VALUES
 	("Nebula", "Manipulates cosmic energy and has limited flight.", "Active", 21000),
 	("Echo", "Can duplicate sounds and voices, creating confusion.", "Active", 13000),
 	("Phantom", "Passes through solid objects and becomes intangible.", "Retired", 16000),
-	("Blaze", "Super speed and friction-generated flames.", "Active", 18000),
+	("Blaze", "Super speed and friction-generated flames.", "Deceased", 18000),
 	("Crimson Wing", "Flight with razor-sharp wings and enhanced agility.", "Deceased", 17000),
     ("Reflex", "Superhuman reflexes and agility for close combat and evasive maneuvers.", "Active", 13000),
     ("PayBack", "Any energy that they're hit with can be absorbed, and sent back to where it came from. Works with physical and magical powers, a hero for all occasions.", "Active", 9000),
