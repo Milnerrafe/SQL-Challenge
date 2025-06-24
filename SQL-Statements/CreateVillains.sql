@@ -3,8 +3,8 @@ DELETE FROM Villains;
 -- In order so we can read it
 INSERT INTO Villains(TeamName, RealName, VillainName, Abilities, Status)
 VALUES("Team 1", "Smokington", "Smokey", "Invisibility, Morph into shadows, Immaterial", "Active"),
-	  ("????", "Frank Horrigan", "Frank Horrigan", "Mutated Human, Bullet Immunity, Armoured Skin, Uses Plasma Blades, Super Strength, Loves to crush things", "Active"),
-      ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Deceased"),
+	("????", "Frank Horrigan", "Frank Horrigan", "Mutated Human, Bullet Immunity, Armoured Skin, Uses Plasma Blades, Super Strength, Loves to crush things", "Active"),
+      ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Active"),
       ("Team 2", "????", "Rat Run", "Can move at super speed, but only if no one can see him. At his strongest in total darkness.", "Active"),
       ("Team 2", "Candice", "Nuclear Palm", "Close-range specialist. If one hand is tied behind her back, her other palm can deliver high impact strikes.", "Active"),
       ("Team 2", "Lake Smith", "Lustre", "Summons concussive bombs that when thrown flash and explode upon impact, disorienting anyone in range.", "Active"),
@@ -49,7 +49,7 @@ INSERT INTO Villains(TeamName, RealName, VillainName, Abilities, Status)
 VALUES            ("Independant", "????", "Mr. Jenga", "Can telekinetically control bones.", "Active"),
       ("????", "Johnny Tex", "Freeze Tag", "Can freeze anything he touches, and radiates cold. Also immune to freezing of any kind. Loves to mention he's from Texas.", "Active"),
       ("Team 8", "Gavin Edgeworth", "Gravatro", "Can raise and lower gravity in areas of his choosing.", "Deceased"),
-      ("????", "Maka Hirano", "Blasta la Vista", "A Demolition Expert, from fire crackers to napalm, this villain has it all. At 4 foot 9\" they found a new way to make an impact. Their one weakness is being gently bumped into, triggering one of the many bombs in their pouches", "Active"),
+      ("????", "Maka Hirano", "Blasta la Vista", "A Demolition Expert, from fire crackers to napalm, this villain has it all. At 4 foot 9 they found a new way to make an impact. Their one weakness is being gently bumped into, triggering one of the many bombs in their pouches", "Active"),
       ("Team 4", "????", "Chicken Threat", "If he views someoneo or something as a threat, he receives a speed boost", "Active"),
       ("Team 4", "Robert Bunning", "Werehouse Man", "Has super strength from 6:30am to 9:00pm on weekdays. Will beat you by 10%.", "Active"),
       ("Independant", "Xander Prince", "Legion", "Within a 20-meter radius, Xander can make a number of people think and act as if they shared the mind and perspective of a single model person of his choosing—also within that radius. The number of people he can control depends on the willpower of the controlled and the conviction of the model.", "Active"),
@@ -72,7 +72,7 @@ VALUES            ("Independant", "????", "Mr. Jenga", "Can telekinetically cont
       ("Independant", "Rolo Peters", "Gacha Man", "Has a large dial on his chest which, when twisted, causes a gacha ball to pop out of his mouth. Opening it grants him a random ability for an hour. These abilities can stack and have varying levels of convenience, some might just be straight up hindrances.", "Active"),
       ("Independant", "????", "Bistro", "Deranged chef wielding a cleaver. Has boosted speed towards victims who have been seasoned.", "Active"),
       ("Team 5", "????", "Hellakinetic", "Can telekinetically control small objects with his mind.", "Active"),
-      ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Deceased"),
+      ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Active"),
       ("Team 6", "Genevieve Simmons", "Flare-do", "Has hair made of flame that she can manipulate and style at will.", "Deceased"),
       ("????", "Lenore Dare", "MechAneurysm", "Builds high tech devices that can hack any technology it touches; Uses a flying hover board; Wears a Metalic mask", "Active"),
       ("Team 5", "Victoria Ruvin", "Evil Her-mes", "Super Speed; Extremely Loyal to her 3 other team mates, loves to wear bright red clothing", "Active"),
