@@ -62,14 +62,11 @@ def setup():
 
     con = sqlite3.connect("python.db")
     cur = con.cursor()
-    cur.execute(f"""
-        INSERT INTO maindb
-        VALUES ('mysqlhost', '{host}');
-        INSERT INTO maindb
-        VALUES ('mysqlusername', '{username}');
-        INSERT INTO maindb
-        VALUES ('mysqlpassword', '{password}');
-        """)
+    cur.executemany("INSERT INTO maindb (name, data) VALUES (?, ?);", [
+                ("mysqlhost", host),
+                ("mysqlusername", username),
+                ("mysqlpassword", password)
+            ])
     con.commit()
     con.close()
 
