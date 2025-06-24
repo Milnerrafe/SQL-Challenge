@@ -1,5 +1,5 @@
 def main():
-    print("Hello from sql-challenge-python-server!")
+    print("Hello from adam")
 
 
 if __name__ == "__main__":
