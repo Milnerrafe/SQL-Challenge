@@ -14,7 +14,7 @@ VALUES( 1, "Observatory, New York",
         "2015-01-08"),
         
         ( 4, "New York Central Cemetary, New York",
-		"The Necrodancer, using funky infectious beats, raised the dead in Ney York Central Cemetary. The dead were drawn towards disco rinks and influencers recording dance videos. They attacked anyone who attempted to prevent them from their next dance.",
+		"The Necrodancer, using funky infectious beats, raised the dead in New York Central Cemetery. The dead were drawn towards disco rinks and influencers recording dance videos. They attacked anyone who attempted to prevent them from their next dance.",
         "2023-12-14"),
         
         ( 5, "Budapest Intra Infernum Hospital, Budapest",
