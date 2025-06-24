@@ -3,6 +3,7 @@ import "./App.scss";
 import { Button, Heading, TextInput } from "@carbon/react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
+import toast, { Toaster } from "react-hot-toast";
 
 function Firststart() {
   const [dbhost, setDbhost] = useState("");
@@ -29,7 +30,17 @@ function Firststart() {
         if (responseVar === "success") {
           Cookies.set("setupdone", "True", { expires: 7 });
           navigate("/welcome");
+        } else {
+          toast.error(
+            "There has been an error. Your credentials may be wrong, please try again",
+          );
         }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(
+          "There has been an error. Your credentials may be wrong, please try again",
+        );
       });
   };
 
@@ -40,6 +51,17 @@ function Firststart() {
           "#main {display: grid;grid-template-columns: 1fr 3fr 1fr;}.mainboxcenter {grid-column: 2 / 3;margin-bottom: 20px;}.boxbottombuttons {margin-right: 20px;}.topheading {margin-top: 50px;}"
         }
       </style>
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          error: {
+            iconTheme: {
+              primary: "red",
+              secondary: "white",
+            },
+          },
+        }}
+      />
       <div id="main">
         <Heading className="mainboxcenter topheading">Welcome</Heading>
         <p className="mainboxcenter">
