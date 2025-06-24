@@ -25,8 +25,8 @@ VALUES( 1, "Observatory, New York",
         "Hellakinetic goes ballistic at Greg's pharmacy after the cashier informed him that they were out of Omega 3 supplements. He began telekinetically lifting and firing only the most lethal sounding pills from shelves at customers and staff. Victims reported temporary relief after being struck by the painkillers.",
         "2013-03-07"),
         
-        ( 7, "__ Bank, Berlin",
-        "The __ Bank, has been robbed. During the robbery, the security system was hacked, and reports say the temperature of the surrounding area dropped to approximately -3°C.",
+        ( 7, "German Federal Bank, Frankfurt",
+        "The German Federal Bank — Germany's central bank — has been robbed. During the robbery, the security system was hacked, and reports say the temperature of the surrounding area dropped to approximately -3°C.",
         "2025-05-30"
         ),
         
