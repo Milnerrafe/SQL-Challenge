@@ -54,6 +54,8 @@ def index():
 @app.route('/api/setup', methods=['POST'])
 def setup():
 
+
+
     json_data = request.get_json()
 
     if not json_data:
@@ -65,6 +67,7 @@ def setup():
 
     con = sqlite3.connect("python.db")
     cur = con.cursor()
+    cur.execute("DELETE FROM maindb WHERE name='mysqlhost' or name='mysqlusername' or name='mysqlpassword';")
     cur.executemany("INSERT INTO maindb (name, data) VALUES (?, ?);", [
                 ("mysqlhost", host),
                 ("mysqlusername", username),
