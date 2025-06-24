@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Button, Heading, TextInput } from "@carbon/react";
 
-function Mainview({ heading }: { heading: string }) {
+function Mainview() {
   return (
     <>
       <style>
@@ -10,7 +10,7 @@ function Mainview({ heading }: { heading: string }) {
         }
       </style>
       <div id="main">
-        <Heading className="mainboxcenter topheading">{heading}</Heading>
+        <Heading className="mainboxcenter topheading">Mission Briefing</Heading>
         <p className="mainboxcenter">
           You are the manager of all Heroes on the planet, and there’s just been
           an incident! Unfortunately, the world’s government funding has all

@@ -2,6 +2,8 @@ from flask import Flask, render_template, redirect, url_for, request, send_from_
 import mysql.connector
 import sqlparse
 import sqlite3
+from flask_cors import CORS
+
 
 
 def startuppythondb():
@@ -22,7 +24,7 @@ def mysqlinfo(type):
 def makedb():
     conn = mysql.connector.connect(
         host=mysqlinfo('host'),
-        user=mysqlinfo('user'),
+        user=mysqlinfo('username'),
         password=mysqlinfo('password'),
     )
 
@@ -41,6 +43,7 @@ def makedb():
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/api')

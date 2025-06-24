@@ -1,7 +1,38 @@
+import React, { useState } from "react";
 import "./App.scss";
 import { Button, Heading, TextInput } from "@carbon/react";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router";
 
 function Firststart() {
+  const [dbhost, setDbhost] = useState("");
+  const [dbusername, setDbusername] = useState("");
+  const [dbpassword, setDbpassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    fetch("http://10.253.204.4:8000/api/setup", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        host: dbhost,
+        username: dbusername,
+        password: dbpassword,
+      }),
+    })
+      .then((response) => response.text())
+      .then((textResponse) => {
+        const responseVar = textResponse;
+        if (responseVar === "success") {
+          Cookies.set("setupdone", "True", { expires: 7 });
+          navigate("/welcome");
+        }
+      });
+  };
+
   return (
     <>
       <style>
@@ -23,14 +54,18 @@ function Firststart() {
           id="dbhost"
           labelText="DB - Host ip"
           className="mainboxcenter"
+          value={dbhost}
+          onChange={(e) => setDbhost(e.target.value)}
         />
 
         <TextInput
-          type="username"
+          type="text"
           required
           id="dbusername"
           labelText="DB - Username"
           className="mainboxcenter"
+          value={dbusername}
+          onChange={(e) => setDbusername(e.target.value)}
         />
         <TextInput
           type="password"
@@ -38,10 +73,14 @@ function Firststart() {
           id="dbpassword"
           labelText="DB - Password"
           className="mainboxcenter"
+          value={dbpassword}
+          onChange={(e) => setDbpassword(e.target.value)}
         />
 
         <div className="mainboxcenter">
-          <Button className="boxbottombuttons">Lets Get Started</Button>
+          <Button className="boxbottombuttons" onClick={handleSubmit}>
+            Lets Get Started
+          </Button>
         </div>
       </div>
     </>
