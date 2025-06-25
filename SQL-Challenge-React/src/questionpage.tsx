@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Button, Heading } from "@carbon/react";
 import "./App.scss";
+import checkanswer from "./check-answer.ts";
 
 function Questionpage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const handleSubmit = () => {
+    checkanswer();
+  };
 
   useEffect(() => {
     fetch("http://10.253.204.6:8000/api/question")
@@ -52,7 +57,7 @@ function Questionpage() {
         )}
 
         <div className="mainboxcenter">
-          <Button className="boxbottombuttons">
+          <Button className="boxbottombuttons" onClick={handleSubmit}>
             {data.question.submitbutton}
           </Button>
         </div>
