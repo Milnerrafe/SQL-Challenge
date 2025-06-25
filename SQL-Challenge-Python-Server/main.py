@@ -30,12 +30,13 @@ def makedb():
 
     cursor = conn.cursor()
 
-    stmt = 'CREATE DATABASE IF NOT EXISTS sqlchallengedb;'
+    stmt = ['CREATE DATABASE IF NOT EXISTS sqlchallengedb;', ]
 
-    try:
-        cursor.execute(stmt)
-    except mysql.connector.Error as err:
-        print(f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}")
+    for i in stmt:
+        try:
+            cursor.execute(i)
+        except mysql.connector.Error as err:
+            print(f"Error executing statement:\n{i}\n\nMySQL Error: {err}")
 
     conn.commit()
     cursor.close()
@@ -78,6 +79,35 @@ def setup():
 
     makedb()
     return 'success'
+
+
+@app.route('/api/qestion', methods=['get'])
+def qestsion():
+
+    con = sqlite3.connect("python.db")
+    cur = con.cursor()
+    res = cur.execute("SELECT data FROM maindb WHERE name='progress'")
+    row = res.fetchone()
+    con.close()
+    res = row[0] if row else None
+
+    if res == '1':
+        return '1'
+    if res == '2':
+        return '2'
+    if res == '3':
+        return '3'
+    if res == '4':
+        return '4'
+    else:
+        return 'error'
+
+
+
+
+
+
+
 
 
 
