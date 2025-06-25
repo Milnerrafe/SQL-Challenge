@@ -35,6 +35,7 @@ function Questionpage() {
   }, [fetchData]);
 
   const handleSubmit = () => {
+    console.log("1");
     fetch("http://10.253.204.6:8000/api/check", {
       method: "POST",
       headers: {
@@ -47,6 +48,7 @@ function Questionpage() {
     })
       .then((response) => response.text())
       .then((textResponse) => {
+        console.log("2");
         const responseVar = textResponse;
         if (responseVar === "yes") {
           toast.success(data.answersresponse.iscorrect);
@@ -56,7 +58,8 @@ function Questionpage() {
         }
         if (responseVar === "red") {
           toast.error(data.answersresponse.redherring);
-        } else {
+        }
+        if (responseVar === "no") {
           toast.error("Your answer is incorrect. Please try again.");
         }
       })
