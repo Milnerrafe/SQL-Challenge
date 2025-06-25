@@ -1,31 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { Button, Heading } from "@carbon/react";
+import { Button, Heading, Loading } from "@carbon/react";
 import "./App.scss";
 import checkanswer from "./check-answer.ts";
+import { useNavigate } from "react-router";
 
 function Questionpage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     checkanswer();
   };
 
   useEffect(() => {
-    fetch("http://10.253.204.6:8000/api/question")
-      .then((response) => response.json())
-      .then((json) => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://10.253.204.6:8000/api/question");
+        const json = await response.json();
         setData(json);
         setLoading(false);
-      })
-      .catch((error) => {
+        if (json.setupneeded === "yes") {
+          navigate("/setup");
+        }
+      } catch (error) {
         console.error("Error fetching JSON:", error);
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    fetchData();
+  }, [navigate]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <style>
+          {
+            ".centerload{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000}"
+          }
+        </style>
+        <Loading active className="centerload" description="Loading" />
+      </>
+    );
   }
 
   return (

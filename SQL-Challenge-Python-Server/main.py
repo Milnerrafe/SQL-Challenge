@@ -5,11 +5,41 @@ import sqlite3
 from flask_cors import CORS
 
 
+def setupmysqldb():
+       conn = mysql.connector.connect(
+           host=mysqlinfo('host'),
+           user=mysqlinfo('username'),
+           password=mysqlinfo('password'),
+           database='sqlchallengedb'
+       )
+       cursor = conn.cursor()
+
+       with open('script.sql', 'r') as f:
+           sql_script = f.read()
+
+       statements = sqlparse.split(sql_script)
+
+       for statement in statements:
+           stmt = statement.strip()
+           if stmt:
+               try:
+                   cursor.execute(stmt)
+               except mysql.connector.Error as err:
+                   print(f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}")
+
+       conn.commit()
+       cursor.close()
+       conn.close()
+
+
+
+
 
 def startuppythondb():
     con = sqlite3.connect("python.db")
     cur = con.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS maindb(name TEXT, data TEXT)")
+    cur.execute("CREATE TABLE IF NOT EXISTS maindb (name TEXT PRIMARY KEY, data TEXT );")
+    cur.execute("""INSERT INTO "maindb" ("name", "data") VALUES ('progress', '0') ON CONFLICT("name") DO UPDATE SET "data" = '0';""")
     con.commit()
     con.close()
 
@@ -41,6 +71,8 @@ def makedb():
     conn.commit()
     cursor.close()
     conn.close()
+
+    setupmysqldb()
 
 
 app = Flask(__name__)
@@ -78,6 +110,12 @@ def setup():
     con.close()
 
     makedb()
+    con = sqlite3.connect("python.db")
+    cur = con.cursor()
+    cur.execute("""UPDATE "maindb" SET "data" = '1' WHERE "name" = 'progress';""")
+    con.commit()
+    con.close()
+
     return 'success'
 
 
@@ -91,23 +129,21 @@ def qestsion():
     con.close()
     res = row[0] if row else None
 
+
     if res == '1':
         question1 = {
-          "name": "question-for-render",
-          "questionnumber": 1,
+          "name": "AvgEvilVibeScore",
+          "questionnumber": 3,
           "question": {
-            "title": "yourtile",
-            "p1": "paragraph-1",
-            "p2": "paragraph-2",
-            "p3": "paragraph-3",
-            "p4": "paragraph-4",
-            "submitbutton": "text for submit button"
+            "title": "Sectors",
+            "p1": "You've found the heroes for the job, now, you just have to find where those wretched rogues are holed up. There are quite a few locations in the Locations table, but an anonymous tipster has said that the Sector with the highest average EvilVibeScore houses our villains!",
+            "p2": "This might be a tough one... you will have to construct and submit a query that returns two columns. One with each of the Sectors, and one with the average EvilVibeScore for each to complete Scenario 3!",
+            "p3": "null",
+            "p4": "null",
+            "submitbutton": "Submit"
           },
           "answersresponse": {
-            "iscorrect": "text for is correct",
-            "ifsomeiscorrect": "text for is some is correct",
-            "isalmostcorrect": "text for is some is almost correct",
-            "": {}
+            "iscorrect": "Congratulations, you found the averages for each sector! Remember the hideout we are after is in the sector with the highest average EvilVibeScore. Review the evidence, study the locations, and determine the location of those conniving bandits to submit as the answer for Scenario 4."
           }
         }
         return jsonify(question1)
@@ -117,8 +153,12 @@ def qestsion():
         return '3'
     if res == '4':
         return '4'
+    if res == '0':
+        setupneeded = {'setupneeded':'yes'}
+        return jsonify(setupneeded)
     else:
-        return 'error'
+        setupneeded = {'setupneeded':'yes'}
+        return jsonify(setupneeded)
 
 
 
