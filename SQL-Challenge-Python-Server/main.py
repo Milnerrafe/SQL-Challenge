@@ -196,7 +196,7 @@ def qestsion():
             "submitbutton": "Submit"
           },
           "answersresponse": {
-            "iscorrect": "The Celadon Cathedral, of course! We will dispatch the heroes immediately! The heroes arrive at the cathedral, tripping the villains' security system and alerting them to their presence. The villains scramble to their feet, take their marks, and prepare for battle. Evil Her-mes speeds towards the heroes, in her signature bright red puffer. Time Warp slows down time, catches up to Evil Her-mes, and handcuffs her. As Doomba vacuums centuries-old dust from the floor, Man in the Van tries to hack into the heroes' comms from his van, which is strangely inside. Doomba delivers an EMP blast, disabling his equipment, and trapping him in his van. He knocks on the door for a while but soon gives up. Freeze Tag runs towards the heroes and tries to tag them. Pyra fires off a burst of flame straight towards Freeze Tag. Freeze Tag's ice melts, and he is left standing in a lukewarm puddle, his powers cancelled out. Hellakinetic grabs a chair from rows of chairs in the cathedral and telekinetically flings it at an astonishing speed towards Prop. Prop morphs into the chair and sends it flying back towards Hellakinetic. The chair crashes into Hellakinetic, sending him flying into a wall and knocking him unconscious. The victorious heroes bring the defeated villains to the time out corner to stay and think about what they’ve done before searching for the bags of stolen money. They find it in the crypt. The heroes bring it back to the bank, and the bank workers are overjoyed. They thank the heroes profusely. The heroes thank them, and take their leave. Congratulations, you’ve solved the mystery! Go and let Leanna or Serhat know so they can tell you what to do next."
+            "iscorrect": "Congratulations, you got it right, Congratulations incoming."
           }
         }
         return jsonify(question4)
@@ -285,11 +285,8 @@ def check():
 
         row = cursor.fetchall()
 
-        answer = row[0]
+        answer = row[0][0]
 
-        sanwr = str(answer)
-
-        conn.commit()
         cursor.close()
         conn.close()
 
@@ -300,125 +297,166 @@ def check():
             database='sqlchallengedb'
         )
 
-        cursor = conn.cursor()
+        cursor2 = conn.cursor()
 
-        stmt = sanwr
+        stmt2 = answer
 
         try:
-            cursor.execute(stmt)
-        except mysql.connector.Error as err:
-            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+            cursor2.execute(stmt2)
+        except mysql.connector.Error as err2:
+            return f"Error executing statement:\n{stmt2}\n\nMySQL Error: {err2}", 500
 
-        row = cursor.fetchall()
+        row2 = cursor2.fetchall()
 
-        answer2 = row[0]
+        answer2 = row2[0][0]
+        print(answer2)
 
-        sanwr2 = str(answer2)
-
-        conn.commit()
-        cursor.close()
+        cursor2.close()
         conn.close()
 
-        if sanwr2 == '24000':
+        if answer2 == 24000:
             con = sqlite3.connect("python.db")
             cur = con.cursor()
             cur.execute("""UPDATE "maindb" SET "data" = '3' WHERE "name" = 'progress';""")
             con.commit()
             con.close()
             return 'yes'
-    if qnumber == 3:
-        conn = mysql.connector.connect(
-            host=mysqlinfo('host'),
-            user=mysqlinfo('username'),
-            password=mysqlinfo('password'),
-            database='sqlchallengedb'
-        )
-
-        cursor = conn.cursor()
-
-        stmt = """SELECT Answer from Solutions WHERE Scenario='3';"""
-
-        try:
-            cursor.execute(stmt)
-        except mysql.connector.Error as err:
-            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
-
-        row = cursor.fetchall()
-
-        answer = row[0]
-
-        sanwr = str(answer)
-
-        conn.commit()
-        cursor.close()
-        conn.close()
-
-        conn = mysql.connector.connect(
-            host=mysqlinfo('host'),
-            user=mysqlinfo('username'),
-            password=mysqlinfo('password'),
-            database='sqlchallengedb'
-        )
-
-        cursor = conn.cursor()
-
-        stmt = sanwr
-
-        try:
-            cursor.execute(stmt)
-        except mysql.connector.Error as err:
-            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
-
-        answer2 = cursor.fetchall()
-
-        conn.commit()
-        cursor.close()
-        conn.close()
-
-
-        conn = mysql.connector.connect(
-            host=mysqlinfo('host'),
-            user=mysqlinfo('username'),
-            password=mysqlinfo('password'),
-            database='sqlchallengedb'
-        )
-
-        cursor = conn.cursor()
-
-        stmt = '''SELECT Sector, AVG(EvilVibeScore) from locations group by sector'''
-
-        try:
-            cursor.execute(stmt)
-        except mysql.connector.Error as err:
-            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
-
-        answer3 = cursor.fetchall()
-
-        conn.commit()
-        cursor.close()
-        conn.close()
-
-        if answer2 == answer3:
-            con = sqlite3.connect("python.db")
-            cur = con.cursor()
-            cur.execute("""UPDATE "maindb" SET "data" = '4' WHERE "name" = 'progress';""")
-            con.commit()
-            con.close()
-            return 'yes'
         else:
             return 'no'
+    if qnumber == 3:
+            conn = mysql.connector.connect(
+                host=mysqlinfo('host'),
+                user=mysqlinfo('username'),
+                password=mysqlinfo('password'),
+                database='sqlchallengedb'
+            )
+
+            cursor = conn.cursor()
+
+            stmt = """SELECT Answer from Solutions WHERE Scenario='3';"""
+
+            try:
+                cursor.execute(stmt)
+            except mysql.connector.Error as err:
+                return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+            row = cursor.fetchall()
+
+            answer = row[0][0]
+
+            sanwr = str(answer)
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            conn = mysql.connector.connect(
+                host=mysqlinfo('host'),
+                user=mysqlinfo('username'),
+                password=mysqlinfo('password'),
+                database='sqlchallengedb'
+            )
+
+            cursor = conn.cursor()
+
+            stmt = sanwr
+
+            try:
+                cursor.execute(stmt)
+            except mysql.connector.Error as err:
+                return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+            answer2 = cursor.fetchall()
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+
+            conn = mysql.connector.connect(
+                host=mysqlinfo('host'),
+                user=mysqlinfo('username'),
+                password=mysqlinfo('password'),
+                database='sqlchallengedb'
+            )
+
+            cursor = conn.cursor()
+
+            stmt = '''SELECT Sector, AVG(EvilVibeScore) from locations group by sector'''
+
+            try:
+                cursor.execute(stmt)
+            except mysql.connector.Error as err:
+                return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+            answer3 = cursor.fetchall()
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            if answer2 == answer3:
+                con = sqlite3.connect("python.db")
+                cur = con.cursor()
+                cur.execute("""UPDATE "maindb" SET "data" = '4' WHERE "name" = 'progress';""")
+                con.commit()
+                con.close()
+                return 'yes'
+            else:
+                return 'no'
+    if qnumber == 4 :
+
+            conn = mysql.connector.connect(
+                host=mysqlinfo('host'),
+                user=mysqlinfo('username'),
+                password=mysqlinfo('password'),
+                database='sqlchallengedb'
+            )
+
+            cursor = conn.cursor()
+
+            stmt = """SELECT Answer from Solutions WHERE Scenario='4';"""
+
+            try:
+                cursor.execute(stmt)
+            except mysql.connector.Error as err:
+                return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+            row = cursor.fetchall()
+
+            answer = row[0][0]
+
+            sanwr = str(answer)
+
+            conn.commit()
+            cursor.close()
+            conn.close()
 
 
 
+            lower_text = sanwr.lower()
 
-
-
-
-
-
-
+            if  lower_text == "celadon cathedral":
+                con = sqlite3.connect("python.db")
+                cur = con.cursor()
+                cur.execute("""UPDATE "maindb" SET "data" = '5' WHERE "name" = 'progress';""")
+                con.commit()
+                con.close()
+                return 'yes'
+            else:
+                return 'no'
     else:
         return 'error', 400
+
+
+
+
+
+
+
+
+
+
 
 
 
