@@ -52,7 +52,7 @@ function Questionpage() {
           toast.success(data.answersresponse.iscorrect);
           setTimeout(() => {
             fetchData();
-          }, 4000);
+          }, 2000);
         }
         if (responseVar === "red") {
           toast.error(data.answersresponse.redherring);
