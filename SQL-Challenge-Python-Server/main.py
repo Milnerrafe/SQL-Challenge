@@ -92,7 +92,25 @@ def qestsion():
     res = row[0] if row else None
 
     if res == '1':
-        return '1'
+        question1 = {
+          "name": "question-for-render",
+          "questionnumber": 1,
+          "question": {
+            "title": "yourtile",
+            "p1": "paragraph-1",
+            "p2": "paragraph-2",
+            "p3": "paragraph-3",
+            "p4": "paragraph-4",
+            "submitbutton": "text for submit button"
+          },
+          "answersresponse": {
+            "iscorrect": "text for is correct",
+            "ifsomeiscorrect": "text for is some is correct",
+            "isalmostcorrect": "text for is some is almost correct",
+            "": {}
+          }
+        }
+        return jsonify(question1)
     if res == '2':
         return '2'
     if res == '3':
