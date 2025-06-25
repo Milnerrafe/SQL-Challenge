@@ -81,7 +81,7 @@ def setup():
     return 'success'
 
 
-@app.route('/api/qestion', methods=['get'])
+@app.route('/api/question', methods=['get'])
 def qestsion():
 
     con = sqlite3.connect("python.db")
