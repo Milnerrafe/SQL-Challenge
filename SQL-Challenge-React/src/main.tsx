@@ -7,8 +7,8 @@ import Questionpage from "./questionpage.tsx";
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Firststart />} />
-      <Route path="/question" element={<Questionpage />} />
+      <Route path="/setup" element={<Firststart />} />
+      <Route path="/" element={<Questionpage />} />
     </Routes>
   </BrowserRouter>,
 );
