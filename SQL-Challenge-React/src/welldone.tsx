@@ -52,6 +52,8 @@ function Welldone() {
           leave. Congratulations, you’ve solved the mystery! Go and let Leanna
           or Serhat know so they can tell you what to do next.
         </p>
+
+        <p className="mainboxcenter"></p>
       </div>
       <Confetti
         mode="fall"

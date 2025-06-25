@@ -326,8 +326,88 @@ def check():
             con.commit()
             con.close()
             return 'yes'
+    if qnumber == 3:
+        conn = mysql.connector.connect(
+            host=mysqlinfo('host'),
+            user=mysqlinfo('username'),
+            password=mysqlinfo('password'),
+            database='sqlchallengedb'
+        )
+
+        cursor = conn.cursor()
+
+        stmt = """SELECT Answer from Solutions WHERE Scenario='3';"""
+
+        try:
+            cursor.execute(stmt)
+        except mysql.connector.Error as err:
+            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+        row = cursor.fetchall()
+
+        answer = row[0]
+
+        sanwr = str(answer)
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        conn = mysql.connector.connect(
+            host=mysqlinfo('host'),
+            user=mysqlinfo('username'),
+            password=mysqlinfo('password'),
+            database='sqlchallengedb'
+        )
+
+        cursor = conn.cursor()
+
+        stmt = sanwr
+
+        try:
+            cursor.execute(stmt)
+        except mysql.connector.Error as err:
+            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+        answer2 = cursor.fetchall()
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+
+        conn = mysql.connector.connect(
+            host=mysqlinfo('host'),
+            user=mysqlinfo('username'),
+            password=mysqlinfo('password'),
+            database='sqlchallengedb'
+        )
+
+        cursor = conn.cursor()
+
+        stmt = '''SELECT Sector, AVG(EvilVibeScore) from locations group by sector'''
+
+        try:
+            cursor.execute(stmt)
+        except mysql.connector.Error as err:
+            return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+        answer3 = cursor.fetchall()
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        if answer2 == answer3:
+            con = sqlite3.connect("python.db")
+            cur = con.cursor()
+            cur.execute("""UPDATE "maindb" SET "data" = '4' WHERE "name" = 'progress';""")
+            con.commit()
+            con.close()
+            return 'yes'
         else:
             return 'no'
+
 
 
 
