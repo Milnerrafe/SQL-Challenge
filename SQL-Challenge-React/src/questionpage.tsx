@@ -18,9 +18,15 @@ function Questionpage() {
       if (json.setupneeded === "yes") {
         navigate("/setup");
       }
+      if (json.welldone === "yes") {
+        navigate("/welldone");
+      }
     } catch (error) {
       console.error("Error fetching JSON:", error);
       setLoading(false);
+      toast.error(
+        "There Has been and error, the server may not be working; Please try again.",
+      );
     }
   }, [navigate]);
 
