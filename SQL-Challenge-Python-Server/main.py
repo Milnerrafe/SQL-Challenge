@@ -161,6 +161,83 @@ def qestsion():
         return jsonify(setupneeded)
 
 
+@app.route('/api/check', methods=['post'])
+def check():
+    json_data = request.get_json()
+
+    if not json_data:
+        return jsonify({'error': 'No JSON received'}), 400
+
+    qnumber = json_data.get('qnumber')
+
+    if qnumber == 1 :
+
+            conn = mysql.connector.connect(
+                host=mysqlinfo('host'),
+                user=mysqlinfo('username'),
+                password=mysqlinfo('password'),
+                database='sqlchallengedb'
+            )
+
+            cursor = conn.cursor()
+
+            stmt = """SELECT Answer from Solutions WHERE Scenario='1';"""
+
+            try:
+                cursor.execute(stmt)
+            except mysql.connector.Error as err:
+                return f"Error executing statement:\n{stmt}\n\nMySQL Error: {err}", 500
+
+            row = cursor.fetchall()
+
+            answer = row[0]
+
+            sanwr = str(answer)
+
+            conn.commit()
+            cursor.close()
+            conn.close()
+
+            keywords = ["Hellakinetic", "Evil Her-mes", "Man in the Van", "Freeze Tag"]
+            redwords = [' MechAneurysm, Rat Run, Blasta la Vista, Never Mist']
+
+            lower_text = sanwr.lower()
+            matches = [word for word in keywords if word.lower() in lower_text]
+            redmatches = [word for word in redwords if word.lower() in lower_text]
+
+            if len(matches) == len(keywords):
+                con = sqlite3.connect("python.db")
+                cur = con.cursor()
+                cur.execute("""UPDATE "maindb" SET "data" = '2' WHERE "name" = 'progress';""")
+                con.commit()
+                con.close()
+                return 'yes'
+            if len(redmatches) == len(redwords):
+                return 'red'
+            else:
+                return 'no'
+    else:
+        return 'error', 400
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
