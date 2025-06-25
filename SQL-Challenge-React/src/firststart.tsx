@@ -12,7 +12,7 @@ function Firststart() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    fetch("http://10.253.204.4:8000/api/setup", {
+    fetch("http://10.253.204.6:8000/api/setup", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -29,7 +29,7 @@ function Firststart() {
         const responseVar = textResponse;
         if (responseVar === "success") {
           Cookies.set("setupdone", "True", { expires: 7 });
-          navigate("/welcome");
+          navigate("/");
         } else {
           toast.error(
             "There has been an error. Your credentials may be wrong, please try again",
