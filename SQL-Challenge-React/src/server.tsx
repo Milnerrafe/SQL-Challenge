@@ -10,6 +10,10 @@ function Server() {
   const [pyhost, setPyhost] = useState("");
   const navigate = useNavigate();
 
+  const handleLink = () => {
+    window.open("https://github.com/Milnerrafe/SQL-Challenge", "_blank");
+  };
+
   const handleSubmit = () => {
     fetch(`${pyhost}/api`, {
       method: "GET",
@@ -70,6 +74,13 @@ function Server() {
         <div className="mainboxcenter">
           <Button className="boxbottombuttons" onClick={handleSubmit}>
             Connect To Server
+          </Button>
+          <Button
+            className="boxbottombuttons"
+            kind="tertiary"
+            onClick={handleLink}
+          >
+            Guide and Github
           </Button>
         </div>
       </div>
