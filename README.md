@@ -6,7 +6,7 @@ Created by Rafe Milner ([Milnerrafe](milnerrafe.com)) and Adam Lowe ([cheesedoct
 
 
 ## Getting Started
-Before starting, you must decide if you are going to host a SQL Challenge event or play in one. Even if you do not have a host, you can still play; just make sure not to look at the answer. 
+Before starting, you must decide if you are going to host a SQL Challenge event or play in one. Even if you do not have a host, you can still play; just make sure not to look at the answers. 
 
 ### Host/Server Set Up
 
