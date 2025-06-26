@@ -81,7 +81,7 @@ CORS(app)
 
 @app.route('/api')
 def index():
-    return 'hello world'
+    return 'serverup'
 
 
 @app.route('/api/setup', methods=['POST'])
