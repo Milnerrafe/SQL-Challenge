@@ -74,11 +74,7 @@ function Questionpage() {
   if (loading) {
     return (
       <>
-        <style>
-          {
-            ".centerload{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000}"
-          }
-        </style>
+        <style>{".CenterLoad{display:grid;place-items:center}"}</style>
         <Toaster
           position="bottom-right"
           toastOptions={{
