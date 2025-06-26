@@ -14,7 +14,7 @@ def setupmysqldb():
        )
        cursor = conn.cursor()
 
-       with open('script.sql', 'r') as f:
+       with open('script.sql', encoding="utf-8") as f:
            sql_script = f.read()
 
        statements = sqlparse.split(sql_script)
