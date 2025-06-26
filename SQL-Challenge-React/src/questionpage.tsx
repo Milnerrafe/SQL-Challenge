@@ -14,6 +14,9 @@ function Questionpage() {
   const fetchData = useCallback(async () => {
     try {
       const pyhost = Cookies.get("pyhost");
+      if (!pyhost) {
+        navigate("/server");
+      }
       const response = await fetch(`${pyhost}/api/question`);
       const json = await response.json();
       setData(json);
@@ -41,6 +44,9 @@ function Questionpage() {
 
   const handleSubmit = () => {
     const pyhost = Cookies.get("pyhost");
+    if (!pyhost) {
+      navigate("/server");
+    }
     fetch(`${pyhost}/api/check`, {
       method: "POST",
       headers: {

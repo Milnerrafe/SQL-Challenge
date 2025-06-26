@@ -11,7 +11,7 @@ function Server() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    fetch(`${pyhost}/isserver`, {
+    fetch(`${pyhost}/api`, {
       method: "GET",
     })
       .then((response) => response.text())
