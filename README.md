@@ -14,7 +14,7 @@ The First step, if you are hosting or playing without a host, is to download the
 
 Once you have downloaded and unzipped the host release and set up your MySQL server. Go to the [UV download page](https://docs.astral.sh/uv/getting-started/installation/) and download UV for your os. You can then run the shell script for the folder that you unzipped; if you do not want to download UV or run a shell script, you can run main.py and install its dependencies, and it will work fine. (Please note you will need the MySQL client downloaded on the server computer, as it is needed for the server to work.)
 
-Once you have started the server, all you will need to do is help your players by referring to the [Host Manual](https://github.com/Milnerrafe/SQL-Challenge/blob/efc497f77a0670a13125fed02643e9d7fbaed794/Setting%20Up%20a%20MySQL%20Workbench%20and%20Server%20on%20Windows.pdf). Those who are playing on their own are advised not to look at the manual, as it has many spoilers and answers.
+Once you have started the server, all you will need to do is help your players by referring to the [Host Manual](https://github.com/Milnerrafe/SQL-Challenge/blob/6457f36040748d78827a1e7f72cd82ccc61bcccc/Confidential%20Scenario%20Run%20Through.pdf). Those who are playing on their own are advised not to look at the manual, as it has many spoilers and answers.
 
 ### Player Set Up
 
