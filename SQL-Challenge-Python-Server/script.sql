@@ -55,7 +55,6 @@ CREATE TABLE IF NOT EXISTS Solutions(
 ) COMMENT = 'Where you will submit your answers! Insert the scenario number into the first column and your answer to it into the second, then run the solution_check() method in mysql-client.py.';
 
 
-
 DELETE FROM Briefings;
 
 INSERT INTO Briefings(BriefingID, Location, Description, Date)
@@ -115,12 +114,13 @@ VALUES( 1, "Observatory, New York",
         "2008-05-27"
         );
 
+
         DELETE FROM Heroes;
 
-INSERT INTO Heroes(Name, Abilities, Status, Cost)
-VALUES
+        INSERT INTO Heroes(Name, Abilities, Status, Cost)
+        VALUES
 	("Disco Man", "Has a Discoball helmet, which allows for 360 vision. Blinding light can be shot from each surface on the ball.", "Active", 8000),
-    ("Solaris", "Harnesses solar energy for flight, energy blasts, and enhanced strength.", "Active", 22000),
+            ("Solaris", "Harnesses solar energy for flight, energy blasts, and enhanced strength.", "Active", 22000),
 	("Frostbite", "Controls ice and cold, can create ice constructs and lower temperatures.", "Deceased", 18000),
 	("Spectra", "Can manipulate light to create illusions and become invisible.", "Active", 15000),
 	("Thunderclap", "Generates shockwaves and sonic booms with his claps.", "Retired", 17000),
@@ -129,7 +129,7 @@ VALUES
 	("Aquaheart", "Communicates with marine life, manipulates water.", "Active", 15000),
 	("Mindwarp", "Powerful telepath with mind control and telekinesis.", "Retired", 23000),
 	("Steelblade", "Has an indestructible metallic body and super strength.", "Deceased", 19000),
-    ("Doomba", "A repurposed Roomba that can deliver strong EMP blasts. Doomba has sentience.", "Active", 5000),
+            ("Doomba", "A repurposed Roomba that can deliver strong EMP blasts. Doomba has sentience.", "Active", 5000),
 	("Vortex", "Controls wind and creates powerful whirlwinds.", "Active", 16000),
 	("Lumina", "Emits blinding light and can heal minor injuries.", "Retired", 14000),
 	("Quake", "Creates and controls earthquakes and tremors.", "Active", 20000),
@@ -140,27 +140,27 @@ VALUES
 	("Phantom", "Passes through solid objects and becomes intangible.", "Retired", 16000),
 	("Blaze", "Super speed and friction-generated flames.", "Deceased", 18000),
 	("Crimson Wing", "Flight with razor-sharp wings and enhanced agility.", "Deceased", 17000),
-    ("Reflex", "Superhuman reflexes and agility for close combat and evasive maneuvers.", "Active", 13000),
-    ("PayBack", "Any energy that they're hit with can be absorbed, and sent back to where it came from. Works with physical and magical powers, a hero for all occasions.", "Active", 9000),
+            ("Reflex", "Superhuman reflexes and agility for close combat and evasive maneuvers.", "Active", 13000),
+            ("PayBack", "Any energy that they're hit with can be absorbed, and sent back to where it came from. Works with physical and magical powers, a hero for all occasions.", "Active", 9000),
 	("Bullseye", "Perfect aim with any projectile, making them a versatile marksman.", "Active", 18000),
 	("Volt", "Controls and generates electricity. Can create EMP blasts, fire electrical attacks, and power electrical machinery.", "Active", 20000),
 	("Absorption", "Absorbs energy and redirects it in powerful bursts, gains enhanced strength and durability", "Active", 28000),
 	("Mirrorball", "Reflects and manipulates light for blinding flashes, invisibility, and illusions", "Active", 22000),
-    ("Shadowstrike", "Master of stealth and shadow manipulation.", "Active", 14000),
-    ("Galadin", "Can summon a sword, shield and full set of armour of hardened light.", "Retired", 5000),
-    ("Sludgema", "Can turn themself into a puddle of goo.", "Active", 3000),
-    ("Arachnid Bro", "Can sling webs from afar to immobilise enemies.", "Active", 9000),
-    ("The Kidna", "Can sprout and fire spikes from his back.", "Retired", 8000),
-    ("Prop", "Can morph into any inaminate object within reach and somehow move as that object.", "Active", 5000),
+            ("Shadowstrike", "Master of stealth and shadow manipulation.", "Active", 14000),
+            ("Galadin", "Can summon a sword, shield and full set of armour of hardened light.", "Retired", 5000),
+            ("Sludgema", "Can turn themself into a puddle of goo.", "Active", 3000),
+            ("Arachnid Bro", "Can sling webs from afar to immobilise enemies.", "Active", 9000),
+            ("The Kidna", "Can sprout and fire spikes from his back.", "Retired", 8000),
+            ("Prop", "Can morph into any inaminate object within reach and somehow move as that object.", "Active", 5000),
 	("Mindshot", "Can enter the dreams of living things and take photos to bring back to the real world.", "Active", 7000),
 	("Plum", "Can become purple.", "Active", 2000),
 	("Vantern", "Summons a cursed lantern which plunges eveything in its range into a sphere of darkness, blinding anyone inside with everyone outside unable to see in.", "Active", 7000),
 	("Ballet", "Charges a powerful kick that becomes more lethal the longer they sustain a pirouette before unleashing the kick. Dropping the pirouette resets the charge.", "Active", 5000),
 	("Tempura Ballista", "Fires a spray of boiling hot oil and breading from an enchanted frying pan.", "Active", 12000),
-    ("Time Warp", "Can slow down time, useful for catching villains with super speed.", "Active", 8000)
+            ("Time Warp", "Can slow down time, useful for catching villains with super speed.", "Active", 8000)
 	;
 
-DELETE FROM Locations;
+	DELETE FROM Locations;
 
 INSERT INTO Locations(LocationID, Sector, Address, Description, EvilVibeScore)
 VALUES
@@ -240,57 +240,100 @@ VALUES
     , "The scent of the sea fills this abandoned warehouse wedged in a once-bustling industrial port district. Now a hub of criminal activity, this warehouse has become warehome to many aspiring villains. A safe place to keep their hard-earned stolen goods, and to have a smoke where their mums can’t see."
     ,5);
 
+    DELETE FROM Villains;
 
-DELETE FROM Villains;
+    -- In order so we can read it
+    INSERT INTO Villains(TeamName, RealName, VillainName, Abilities, Status)
+    VALUES("Team 1", "Smokington", "Smokey", "Invisibility, Morph into shadows, Immaterial", "Active"),
+	("????", "Frank Horrigan", "Frank Horrigan", "Mutated Human, Bullet Immunity, Armoured Skin, Uses Plasma Blades, Super Strength, Loves to crush things", "Active"),
+          ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Active"),
+          ("Team 2", "????", "Rat Run", "Can move at super speed, but only if no one can see him. At his strongest in total darkness.", "Active"),
+          ("Team 2", "Candice", "Nuclear Palm", "Close-range specialist. If one hand is tied behind her back, her other palm can deliver high impact strikes.", "Active"),
+          ("Team 2", "Lake Smith", "Lustre", "Summons concussive bombs that when thrown flash and explode upon impact, disorienting anyone in range.", "Active"),
+          ("????", "Lenore Dare", "MechAneurysm", "Builds high tech devices that can hack any technology it touches; Uses a flying hover board; Wears a Metalic mask", "Active"),
+          ("Team 3", "Eileen", "Eileen", "Invisibility, Flying", "Active"),
+          ("Team 3", "????", "Smores", "Demon; Can Fly: Breathes Fire; Gargoyle like body", "Active"),
+          ("Team 3", "????", "Scabbard", "Can peel a wound from his body to heal, turning the peeled wound into the blade of a one-time use sword that can inflict itself onto others before disappearing.", "Active"),
+          ("Team 4", "Ronald McDonald", "McSterminator", "Clown", "Active"),
+          ("Team 4", "Robert Bunning", "Werehouse Man", "Has super strength from 6:30am to 9:00pm on weekdays. Will beat you by 10%.", "Active"),
+          ("Team 4", "????", "Chicken Threat", "If he views someoneo or something as a threat, he receives a speed boost", "Active"),
+          ("Team 4", "????", "Dread Rooster", "Metalic Beak on Mask, 4x effective against eyes", "Active"),
+          ("Team 5", "Dan Pengress", "Man in the Van", "Hacker extraordaire, stays in a van during teams heists, which has technology to hack any device remotely", "Active"),
+          ("Team 5", "Victoria Ruvin", "Evil Her-mes", "Super Speed; Extremely Loyal to her 3 other team mates, loves to wear bright red clothing", "Active"),
+          ("Team 5", "????", "Hellakinetic", "Can telekinetically control small objects with his mind.", "Active"),
+          ("????", "Johnny Tex", "Freeze Tag", "Can freeze anything he touches, and radiates cold. Also immune to freezing of any kind. Loves to mention he's from Texas.", "Active"),
+          ("Independent", "????", "The Shep-head", "A master of disguise never seen without their rubber sheep mask. Possesses the strength and abilities of a normal human shepherd.", "Active"),
+          ("Independent", "Robert Smalls", "The Immortal", "Has lived for over 70 years without dying even once.", "Deceased"),
+          ("????", "Maka Hirano", "Blasta la Vista", "A Demolition Expert, from fire crackers to napalm, this villain has it all. At 4 foot 9 inches they found a new way to make an impact. Their one weakness is being gently bumped into, triggering one of the many bombs in their pouches", "Active"),
+          ("Team 6", "Genevieve Simmons", "Flare-do", "Has hair made of flame that she can manipulate and style at will. She never washes it.", "Deceased"),
+          ("Team 6", "Carl Brand", "Pompasaur", "Has a living pompadour that can bite with the force of a T-Rex.", "Deceased"),
+          ("Team 6", "????", "Pixie", "Can shake her pixie cut to summon magical sparkles that adhere to her enemies and are very difficult to remove.", "Deceased"),
+          ("Team 6", "Moe Sidebottom", "Moe-Hawk", "Sprouts wings of hair from his mohawk to fly.", "Deceased"),
+          ("Independent", "Cameron Paul", "Cannonball", "Can jump an extraordinary distance at extreme speeds when tucked into a ball.", "Active"),
+          ("Independent", "????", "Deadline", "Can summon a cursed phone to talk to the dead.", "Active"),
+          ("Independent", "????", "Mr. Jenga", "Can telekinetically control bones.", "Active"),
+          ("????", "????", "Queen Bee", "Can control bees.", "Active"),
+          ("Independent", "Simon", "Simon", "Can convince anyone who can hear him to do anything by saying 'Simon says' before any command.", "Active"),
+          ("Team 7", "????", "Fox", "Unrivalled speed at eating ramen.", "Active"),
+          ("Team 7", "????", "Edge", "Has the power to make everyone around him sad.", "Active"),
+          ("Team 7", "????", "Blossom", "Massive crushing power with strikes from her forehead.", "Active"),
+          ("Team 8", "Lara Waters", "Flood", "Can summon control and manipulate water.", "Deceased"),
+          ("Team 8", "????", "RC", "Has an opaque ghost clone of himself that he can remotely control as long as his real body is safe.", "Active"),
+          ("Team 8", "Gavin Edgeworth", "Gravatro", "Can raise and lower gravity in areas of his choosing.", "Deceased"),
+          ("Independent", "????", "Bistro", "Deranged chef wielding a cleaver. Has boosted speed towards victims who have been seasoned.", "Active"),
+          ("Independent", "Xander Prince", "Legion", "Within a 20-meter radius, Xander can make a number of people think and act as if they shared the mind and perspective of a single model person of his choosing—also within that radius. The number of people he can control depends on the willpower of the controlled and the conviction of the model.", "Active"),
+          ("Independent", "Rolo Peters", "Gacha Man", "Has a large dial on his chest which, when twisted, causes a gacha ball to pop out of his mouth. Opening it grants him a random ability for an hour. These abilities can stack and have varying levels of convenience, some might just be straight up hindrances.", "Active"),
+          ("Independent", "Adrianna Riviera", "Hoop", "Can float and fire purple energy bracelets at enemies to ensnare them. She can explode the bracelets on command with a power concussive blast.", "Active")
+          ;
 
--- Random order so students have to sort it
-INSERT INTO Villains(TeamName, RealName, VillainName, Abilities, Status)
-VALUES            ("Independent", "????", "Mr. Jenga", "Can telekinetically control bones.", "Active"),
-      ("????", "Johnny Tex", "Freeze Tag", "Can freeze anything he touches, and radiates cold. Also immune to freezing of any kind. Loves to mention he's from Texas.", "Active"),
-      ("Team 8", "Gavin Edgeworth", "Gravatro", "Can raise and lower gravity in areas of his choosing.", "Deceased"),
-      ("????", "Maka Hirano", "Blasta la Vista", "A Demolition Expert, from fire crackers to napalm, this villain has it all. At 4 foot 9 they found a new way to make an impact. Their one weakness is being gently bumped into, triggering one of the many bombs in their pouches", "Active"),
-      ("Team 4", "????", "Chicken Threat", "If he views someoneo or something as a threat, he receives a speed boost", "Active"),
-      ("Team 4", "Robert Bunning", "Werehouse Man", "Has super strength from 6:30am to 9:00pm on weekdays. Will beat you by 10%.", "Active"),
-      ("Independent", "Xander Prince", "Legion", "Within a 20-meter radius, Xander can make a number of people think and act as if they shared the mind and perspective of a single model person of his choosing—also within that radius. The number of people he can control depends on the willpower of the controlled and the conviction of the model.", "Active"),
-      ("Team 6", "Carl Brand", "Pompasaur", "Has a living pompadour that can bite with the force of a T-Rex.", "Deceased"),
-      ("Team 6", "????", "Pixie", "Can shake her pixie cut to summon magical sparkles that adhere to her enemies and are very difficult to remove.", "Deceased"),
-      ("Team 7", "????", "Blossom", "Massive crushing power with strikes from her forehead.", "Active"),
-      ("Team 3", "????", "Smores", "Demon; Can Fly: Breathes Fire; Gargoyle like body", "Active"),
-      ("Team 6", "Moe Sidebottom", "Moe-Hawk", "Sprouts wings of hair from his mohawk to fly.", "Deceased"),
-      ("Team 7", "????", "Fox", "Unrivalled speed at eating ramen.", "Active"),
-      ("Team 4", "????", "Dread Rooster", "Metalic Beak on Mask, 4x effective against eyes", "Active"),
-      ("Independent", "????", "Deadline", "Can summon a cursed phone to talk to the dead.", "Active"),
-      ("Team 4", "Ronald McDonald", "McSterminator", "Clown", "Active"),
-      ("????", "????", "Queen Bee", "Can control bees.", "Active"),
-      ("Team 2", "Candice", "Nuclear Palm", "Close-range specialist. If one hand is tied behind her back, her other palm can deliver high impact strikes.", "Active"),
-      ("Team 8", "Lara Waters", "Flood", "Can summon control and manipulate water.", "Deceased"),
-      ("Team 3", "????", "Scabbard", "Can peel a wound from his body to heal, turning the peeled wound into the blade of a one-time use sword that can inflict itself onto others before disappearing.", "Active"),
-      ("Independent", "Simon", "Simon", "Can convince anyone who can hear him to do anything by saying 'Simon says' before any command.", "Active"),
-      ("Team 2", "????", "Rat Run", "Can move at super speed, but only if no one can see him. At his strongest in total darkness.", "Active"),
-      ("Team 1", "Smokington", "Smokey", "Invisibility, Morph into shadows, Immaterial", "Active"),
-      ("Independent", "Rolo Peters", "Gacha Man", "Has a large dial on his chest which, when twisted, causes a gacha ball to pop out of his mouth. Opening it grants him a random ability for an hour. These abilities can stack and have varying levels of convenience, some might just be straight up hindrances.", "Active"),
-      ("Independent", "????", "Bistro", "Deranged chef wielding a cleaver. Has boosted speed towards victims who have been seasoned.", "Active"),
-      ("Team 5", "????", "Hellakinetic", "Can telekinetically control small objects with his mind.", "Active"),
-      ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Active"),
-      ("Team 6", "Genevieve Simmons", "Flare-do", "Has hair made of flame that she can manipulate and style at will.", "Deceased"),
-      ("????", "Lenore Dare", "MechAneurysm", "Builds high tech devices that can hack any technology it touches; Uses a flying hover board; Wears a Metalic mask", "Active"),
-      ("Team 5", "Victoria Ruvin", "Evil Her-mes", "Super Speed; Extremely Loyal to her 3 other team mates, loves to wear bright red clothing", "Active"),
-      ("Team 5", "Dan Pengress", "Man in the Van", "Hacker extraordaire, stays in a van during teams heists, which has technology to hack any device remotely", "Active"),
-      ("Team 2", "Lake Smith", "Lustre", "Summons concussive bombs that when thrown flash and explode upon impact, disorienting anyone in range.", "Active"),
-      ("Team 7", "????", "Edge", "Has the power to make everyone around him sad.", "Active"),
-      ("Team 3", "Eileen", "Eileen", "Invisibility, Flying", "Active"),
-      ("Independent", "????", "The Shep-head", "A master of disguise never seen without their rubber sheep mask. Possesses the strength and abilities of a normal human shepherd.", "Active"),
-      ("Team 8", "????", "RC", "Has an opaque ghost clone of himself that he can remotely control as long as his real body is safe.", "Active"),
-      ("Independent", "Robert Smalls", "The Immortal", "Has lived for over 70 years without dying even once.", "Deceased"),
+    -- Random order so students have to sort it
+    INSERT INTO Villains(TeamName, RealName, VillainName, Abilities, Status)
+    VALUES            ("Independent", "????", "Mr. Jenga", "Can telekinetically control bones.", "Active"),
+          ("????", "Johnny Tex", "Freeze Tag", "Can freeze anything he touches, and radiates cold. Also immune to freezing of any kind. Loves to mention he's from Texas.", "Active"),
+          ("Team 8", "Gavin Edgeworth", "Gravatro", "Can raise and lower gravity in areas of his choosing.", "Deceased"),
+          ("????", "Maka Hirano", "Blasta la Vista", "A Demolition Expert, from fire crackers to napalm, this villain has it all. At 4 foot 9 they found a new way to make an impact. Their one weakness is being gently bumped into, triggering one of the many bombs in their pouches", "Active"),
+          ("Team 4", "????", "Chicken Threat", "If he views someoneo or something as a threat, he receives a speed boost", "Active"),
+          ("Team 4", "Robert Bunning", "Werehouse Man", "Has super strength from 6:30am to 9:00pm on weekdays. Will beat you by 10%.", "Active"),
+          ("Independent", "Xander Prince", "Legion", "Within a 20-meter radius, Xander can make a number of people think and act as if they shared the mind and perspective of a single model person of his choosing—also within that radius. The number of people he can control depends on the willpower of the controlled and the conviction of the model.", "Active"),
+          ("Team 6", "Carl Brand", "Pompasaur", "Has a living pompadour that can bite with the force of a T-Rex.", "Deceased"),
+          ("Team 6", "????", "Pixie", "Can shake her pixie cut to summon magical sparkles that adhere to her enemies and are very difficult to remove.", "Deceased"),
+          ("Team 7", "????", "Blossom", "Massive crushing power with strikes from her forehead.", "Active"),
+          ("Team 3", "????", "Smores", "Demon; Can Fly: Breathes Fire; Gargoyle like body", "Active"),
+          ("Team 6", "Moe Sidebottom", "Moe-Hawk", "Sprouts wings of hair from his mohawk to fly.", "Deceased"),
+          ("Team 7", "????", "Fox", "Unrivalled speed at eating ramen.", "Active"),
+          ("Team 4", "????", "Dread Rooster", "Metalic Beak on Mask, 4x effective against eyes", "Active"),
+          ("Independent", "????", "Deadline", "Can summon a cursed phone to talk to the dead.", "Active"),
+          ("Team 4", "Ronald McDonald", "McSterminator", "Clown", "Active"),
+          ("????", "????", "Queen Bee", "Can control bees.", "Active"),
+          ("Team 2", "Candice", "Nuclear Palm", "Close-range specialist. If one hand is tied behind her back, her other palm can deliver high impact strikes.", "Active"),
+          ("Team 8", "Lara Waters", "Flood", "Can summon control and manipulate water.", "Deceased"),
+          ("Team 3", "????", "Scabbard", "Can peel a wound from his body to heal, turning the peeled wound into the blade of a one-time use sword that can inflict itself onto others before disappearing.", "Active"),
+          ("Independent", "Simon", "Simon", "Can convince anyone who can hear him to do anything by saying 'Simon says' before any command.", "Active"),
+          ("Team 2", "????", "Rat Run", "Can move at super speed, but only if no one can see him. At his strongest in total darkness.", "Active"),
+          ("Team 1", "Smokington", "Smokey", "Invisibility, Morph into shadows, Immaterial", "Active"),
+          ("Independent", "Rolo Peters", "Gacha Man", "Has a large dial on his chest which, when twisted, causes a gacha ball to pop out of his mouth. Opening it grants him a random ability for an hour. These abilities can stack and have varying levels of convenience, some might just be straight up hindrances.", "Active"),
+          ("Independent", "????", "Bistro", "Deranged chef wielding a cleaver. Has boosted speed towards victims who have been seasoned.", "Active"),
+          ("Team 5", "????", "Hellakinetic", "Can telekinetically control small objects with his mind.", "Active"),
+          ("Team 1", "Valerie Bell", "Never Mist", "Summons a cloud she can ride and a sniper rifle of ice. The rifle fires ice bullets that melt after impact.", "Active"),
+          ("Team 6", "Genevieve Simmons", "Flare-do", "Has hair made of flame that she can manipulate and style at will.", "Deceased"),
+          ("????", "Lenore Dare", "MechAneurysm", "Builds high tech devices that can hack any technology it touches; Uses a flying hover board; Wears a Metalic mask", "Active"),
+          ("Team 5", "Victoria Ruvin", "Evil Her-mes", "Super Speed; Extremely Loyal to her 3 other team mates, loves to wear bright red clothing", "Active"),
+          ("Team 5", "Dan Pengress", "Man in the Van", "Hacker extraordaire, stays in a van during teams heists, which has technology to hack any device remotely", "Active"),
+          ("Team 2", "Lake Smith", "Lustre", "Summons concussive bombs that when thrown flash and explode upon impact, disorienting anyone in range.", "Active"),
+          ("Team 7", "????", "Edge", "Has the power to make everyone around him sad.", "Active"),
+          ("Team 3", "Eileen", "Eileen", "Invisibility, Flying", "Active"),
+          ("Independent", "????", "The Shep-head", "A master of disguise never seen without their rubber sheep mask. Possesses the strength and abilities of a normal human shepherd.", "Active"),
+          ("Team 8", "????", "RC", "Has an opaque ghost clone of himself that he can remotely control as long as his real body is safe.", "Active"),
+          ("Independent", "Robert Smalls", "The Immortal", "Has lived for over 70 years without dying even once.", "Deceased"),
 	  ("????", "Frank Horrigan", "Frank Horrigan", "Mutated Human, Bullet Immunity, Armoured Skin, Uses Plasma Blades, Super Strength, Loves to crush things", "Active"),
-      ("Independent", "Cameron Paul", "Cannonball", "Can jump an extraordinary distance at extreme speeds when tucked into a ball.", "Active"),
-      ("Independent", "Adrianna Riviera", "Hoop", "Can float and fire purple energy bracelets at enemies to ensnare them. She can explode the bracelets on command with a power concussive blast.", "Active")
-      ;
+          ("Independent", "Cameron Paul", "Cannonball", "Can jump an extraordinary distance at extreme speeds when tucked into a ball.", "Active"),
+          ("Independent", "Adrianna Riviera", "Hoop", "Can float and fire purple energy bracelets at enemies to ensnare them. She can explode the bracelets on command with a power concussive blast.", "Active")
+          ;
 
-      DELETE FROM Witnesses;
+          DELETE FROM Witnesses;
 
-      INSERT INTO Witnesses(BriefingID, Name, Occupation, Age, Gender, Statement)
-      VALUES(1, "Sarah Lockingham", "Software Engineer", 28, "Female", "The observatory normally has centralised heating, but I remember my teeth chattering the whole evening"),
+          INSERT INTO Witnesses(BriefingID, Name, Occupation, Age, Gender, Statement)
+          VALUES(1, "Sarah Lockingham", "Software Engineer", 28, "Female", "The observatory normally has centralised heating, but I remember my teeth chattering the whole evening"),
 	(1, "David Wicker", "Astronomer", 54, "Male", "My mum packed my lunch for me that day and someone ate it!"),
 	(2, "Penguin", "Penguin", 3, "Male", "Quack! Quack! Quack!"),
 	(2, "Polar Bear", "Polar Bear", 12, "Female", "Mrs Bear bit off the interviewer's hand, and smacked the recording camera to the ground. Our cryptographers are still attempting to decipher the message"),
@@ -315,14 +358,14 @@ VALUES            ("Independent", "????", "Mr. Jenga", "Can telekinetically cont
 	(9, "Tim Johnson", "Cobbler", 65, "Male", "My grandson always helps me with that rip in space-time stuff."),
 	(9, "Blake Vass", "Accountant", 25, "Male", "I hate these dumb taking over the world pranks. Someone could get hurt!"),
 	(9, "Caesar Everie", "Unemployed", 25, "Male", "It was so scary!"),
-          (10, "Anna Peeters", "Kitchen Staff", 44, "Female", "I don’t really know what happened… I was at the kitchen sink looking out the window when I felt a gush of wind go past me, but when I turned around there was nothing behind me. You know its funny? My brother in law went through something really similar in the past, back in 2000."),
-          (10, "Andre Jacobs", "Data Analyst", 36, "Male", "I work in the lower basements, where we hold the data centers. I definitely saw someone out of the ordinary down there, a lot of the lights had been knocked out, so I didn’t get a good look at their face, but when they saw me they jumped out the window, out onto the cliff side. I didn’t see any bodies out on the rocks, so I figured they got away."),
-          (10, "Randal Holden", "Castle Guard", 22, "Male", "Well - huff - I was tied up for most of the attack - phew - sorry, I’m a bit out of breath. I saw a big guy knocking out lots of the guards, a real intimidating guy. When he was fighting he left tonnes of dents and imprints on the castle floor and walls. When I came into work I saw a weird looking van out front too, it had a lot of satellite dishes on top of it. I figured it was a news crew coming to do a segment on the ball the royal family was throwing, but after tonight I’m not too sure."),
-          (10, "Becca Flanders", "Royal Seamstress", 45, "Female", "I wasn't anywhere near the scene of the crime, I didn't see anything. If you'll excuse me, one of the guards lost their uniform, I need to make them another one"),
-          (11, "Frank Horrigan", "Super Villain", 32, "Male", "So you got me, big deal, we still completed our objective. If that Randal Rat and his hacker friend hadn't double crossed us I would've taken out every last one of you. I'm not worried though, my team will have me out before your body hits the floor. *NOTE: AT THIS POINT FRANK HORRIGAN BROKE OUT OF HIS BONDS*"),
-          (11, "Mara Papa", "Writer", 33, "Female", "I'm afraid there wasn't that much that I was able to see, I saw someone with this scary metallic mask burst in through the window on their flying skateboard, and went straight into the security room. Then all the lights went off. There was lots of commotion, but I couldn't see anything else."),
-          (11, "Stephen Peeters", "Musician", 30, "Male", "I was at the musuem, trying to get inspiration for my next song, when the lights went out. I felt this big whoosh go by me and I got knocked down, never saw what it was though."),
-          (12, "John O'Leary", "Priest", 62, "Male", "Good heavens!"),
+              (10, "Anna Peeters", "Kitchen Staff", 44, "Female", "I don’t really know what happened… I was at the kitchen sink looking out the window when I felt a gush of wind go past me, but when I turned around there was nothing behind me. You know its funny? My brother in law went through something really similar in the past, back in 2000."),
+              (10, "Andre Jacobs", "Data Analyst", 36, "Male", "I work in the lower basements, where we hold the data centers. I definitely saw someone out of the ordinary down there, a lot of the lights had been knocked out, so I didn’t get a good look at their face, but when they saw me they jumped out the window, out onto the cliff side. I didn’t see any bodies out on the rocks, so I figured they got away."),
+              (10, "Randal Holden", "Castle Guard", 22, "Male", "Well - huff - I was tied up for most of the attack - phew - sorry, I’m a bit out of breath. I saw a big guy knocking out lots of the guards, a real intimidating guy. When he was fighting he left tonnes of dents and imprints on the castle floor and walls. When I came into work I saw a weird looking van out front too, it had a lot of satellite dishes on top of it. I figured it was a news crew coming to do a segment on the ball the royal family was throwing, but after tonight I’m not too sure."),
+              (10, "Becca Flanders", "Royal Seamstress", 45, "Female", "I wasn't anywhere near the scene of the crime, I didn't see anything. If you'll excuse me, one of the guards lost their uniform, I need to make them another one"),
+              (11, "Frank Horrigan", "Super Villain", 32, "Male", "So you got me, big deal, we still completed our objective. If that Randal Rat and his hacker friend hadn't double crossed us I would've taken out every last one of you. I'm not worried though, my team will have me out before your body hits the floor. *NOTE: AT THIS POINT FRANK HORRIGAN BROKE OUT OF HIS BONDS*"),
+              (11, "Mara Papa", "Writer", 33, "Female", "I'm afraid there wasn't that much that I was able to see, I saw someone with this scary metallic mask burst in through the window on their flying skateboard, and went straight into the security room. Then all the lights went off. There was lots of commotion, but I couldn't see anything else."),
+              (11, "Stephen Peeters", "Musician", 30, "Male", "I was at the musuem, trying to get inspiration for my next song, when the lights went out. I felt this big whoosh go by me and I got knocked down, never saw what it was though."),
+              (12, "John O'Leary", "Priest", 62, "Male", "Good heavens!"),
 	(13, "Esther Josephine", "Retired", 65, "Other", "Well I never!"),
-          (13, "Teleah Brassman", "Musician", 30, "Other", "One of the sheep ran into me, striking me with its wool. It felt quite pleasant."),
+              (13, "Teleah Brassman", "Musician", 30, "Other", "One of the sheep ran into me, striking me with its wool. It felt quite pleasant."),
 	(13, "Brody Kody", "Unemployed", 27, "Other", "Gnarly.");

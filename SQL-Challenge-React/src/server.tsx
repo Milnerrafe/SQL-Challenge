@@ -60,6 +60,10 @@ function Server() {
           format: http://your-address:8000 (do not include a trailing / at the
           end).
         </p>
+        <p className="mainboxcenter">
+          Due to web security policies, please ensure that you are at the HTTP
+          version of this website.
+        </p>
 
         <TextInput
           type="text"
