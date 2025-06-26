@@ -10,8 +10,7 @@ def setupmysqldb():
            host=mysqlinfo('host'),
            user=mysqlinfo('username'),
            password=mysqlinfo('password'),
-           database='sqlchallengedb',
-           port=3306,
+           database='sqlchallengedb'
        )
        cursor = conn.cursor()
 
@@ -53,12 +52,10 @@ def mysqlinfo(type):
     return row[0] if row else None
 
 def makedb():
-    print(mysqlinfo('host'))
     conn = mysql.connector.connect(
         host=mysqlinfo('host'),
         user=mysqlinfo('username'),
         password=mysqlinfo('password'),
-        port=3306,
     )
 
     cursor = conn.cursor()
@@ -229,8 +226,7 @@ def check():
                 host=mysqlinfo('host'),
                 user=mysqlinfo('username'),
                 password=mysqlinfo('password'),
-                database='sqlchallengedb',
-                port=3306,
+                database='sqlchallengedb'
             )
 
             cursor = conn.cursor()
@@ -275,8 +271,7 @@ def check():
             host=mysqlinfo('host'),
             user=mysqlinfo('username'),
             password=mysqlinfo('password'),
-            database='sqlchallengedb',
-            port=3306,
+            database='sqlchallengedb'
         )
 
         cursor = conn.cursor()
@@ -299,8 +294,7 @@ def check():
             host=mysqlinfo('host'),
             user=mysqlinfo('username'),
             password=mysqlinfo('password'),
-            database='sqlchallengedb',
-            port=3306,
+            database='sqlchallengedb'
         )
 
         cursor2 = conn.cursor()
@@ -334,8 +328,7 @@ def check():
                 host=mysqlinfo('host'),
                 user=mysqlinfo('username'),
                 password=mysqlinfo('password'),
-                database='sqlchallengedb',
-                port=3306,
+                database='sqlchallengedb'
             )
 
             cursor = conn.cursor()
@@ -361,8 +354,7 @@ def check():
                 host=mysqlinfo('host'),
                 user=mysqlinfo('username'),
                 password=mysqlinfo('password'),
-                database='sqlchallengedb',
-                port=3306,
+                database='sqlchallengedb'
             )
 
             cursor = conn.cursor()
@@ -385,8 +377,7 @@ def check():
                 host=mysqlinfo('host'),
                 user=mysqlinfo('username'),
                 password=mysqlinfo('password'),
-                database='sqlchallengedb',
-                port=3306,
+                database='sqlchallengedb'
             )
 
             cursor = conn.cursor()
@@ -419,8 +410,7 @@ def check():
                 host=mysqlinfo('host'),
                 user=mysqlinfo('username'),
                 password=mysqlinfo('password'),
-                database='sqlchallengedb',
-                port=3306,
+                database='sqlchallengedb'
             )
 
             cursor = conn.cursor()

@@ -11,7 +11,7 @@ function Questionpage() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch("http://10.253.204.4:8000/api/question");
+      const response = await fetch("http://10.253.204.6:8000/api/question");
       const json = await response.json();
       setData(json);
       setLoading(false);
@@ -35,7 +35,7 @@ function Questionpage() {
   }, [fetchData]);
 
   const handleSubmit = () => {
-    fetch("http://10.253.204.4:8000/api/check", {
+    fetch("http://10.253.204.6:8000/api/check", {
       method: "POST",
       headers: {
         Accept: "application/json",
