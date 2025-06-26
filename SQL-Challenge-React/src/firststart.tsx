@@ -5,12 +5,20 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import Progressindicator from "./progressindicator.tsx";
+import { useEffect } from "react";
 
 function Firststart() {
   const [dbhost, setDbhost] = useState("");
   const [dbusername, setDbusername] = useState("");
   const [dbpassword, setDbpassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const pyhost = Cookies.get("pyhost");
+    if (!pyhost) {
+      navigate("/server");
+    }
+  }, [navigate]);
 
   const handleSubmit = () => {
     const pyhost = Cookies.get("pyhost");
