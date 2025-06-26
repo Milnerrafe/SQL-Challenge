@@ -3,6 +3,7 @@ import { Button, Heading, Loading } from "@carbon/react";
 import "./App.scss";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
+import Progressindicator from "./progressindicator.tsx";
 
 function Questionpage() {
   const [data, setData] = useState(null);
@@ -11,7 +12,7 @@ function Questionpage() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch("http://10.253.204.6:8000/api/question");
+      const response = await fetch("http://10.253.204.3:8000/api/question");
       const json = await response.json();
       setData(json);
       setLoading(false);
@@ -31,11 +32,14 @@ function Questionpage() {
   }, [navigate]);
 
   useEffect(() => {
-    fetchData();
+    document.startViewTransition(() => {
+      fetchData();
+    });
   }, [fetchData]);
 
   const handleSubmit = () => {
-    fetch("http://10.253.204.6:8000/api/check", {
+    console.log("1");
+    fetch("http://10.253.204.3:8000/api/check", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -47,16 +51,20 @@ function Questionpage() {
     })
       .then((response) => response.text())
       .then((textResponse) => {
+        console.log("2");
         const responseVar = textResponse;
         if (responseVar === "yes") {
           toast.success(data.answersresponse.iscorrect);
           setTimeout(() => {
-            fetchData();
-          }, 2000);
+            document.startViewTransition(() => {
+              fetchData();
+            });
+          }, 1500);
         }
         if (responseVar === "red") {
           toast.error(data.answersresponse.redherring);
-        } else {
+        }
+        if (responseVar === "no") {
           toast.error("Your answer is incorrect. Please try again.");
         }
       })
@@ -92,7 +100,7 @@ function Questionpage() {
     <>
       <style>
         {
-          "#main {display: grid;grid-template-columns: 1fr 3fr 1fr;}.mainboxcenter {grid-column: 2 / 3;margin-bottom: 20px;}.boxbottombuttons {margin-right: 20px;}.topheading {margin-top: 50px;}"
+          "#main {display: grid;grid-template-columns: 1fr 3fr 1fr;}.mainboxcenter {grid-column: 2 / 3;margin-bottom: 20px;}.progress {margin-bottom: 60px; margin-top: 20px;}.boxbottombuttons {margin-right: 20px;}.topheading {margin-top: 50px;}"
         }
       </style>
       <Toaster
@@ -107,9 +115,11 @@ function Questionpage() {
         }}
       />
       <div id="main">
-        <Heading className="mainboxcenter topheading">
-          {data.question.title}
-        </Heading>
+        <Progressindicator
+          className="mainboxcenter progress"
+          index={parseInt(data.questionnumber)}
+        />
+        <Heading className="mainboxcenter">{data.question.title}</Heading>
 
         {data.question.p1 !== "null" && (
           <p className="mainboxcenter">{data.question.p1}</p>

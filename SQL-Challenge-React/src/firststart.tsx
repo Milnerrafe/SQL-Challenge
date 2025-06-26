@@ -4,6 +4,7 @@ import { Button, Heading, TextInput } from "@carbon/react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
+import Progressindicator from "./progressindicator.tsx";
 
 function Firststart() {
   const [dbhost, setDbhost] = useState("");
@@ -12,7 +13,7 @@ function Firststart() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    fetch("http://10.253.204.6:8000/api/setup", {
+    fetch("http://10.253.204.3:8000/api/setup", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -48,7 +49,7 @@ function Firststart() {
     <>
       <style>
         {
-          "#main {display: grid;grid-template-columns: 1fr 3fr 1fr;}.mainboxcenter {grid-column: 2 / 3;margin-bottom: 20px;}.boxbottombuttons {margin-right: 20px;}.topheading {margin-top: 50px;}"
+          "#main {display: grid;grid-template-columns: 1fr 3fr 1fr;}.progress {margin-bottom: 60px; margin-top: 20px;}.mainboxcenter {grid-column: 2 / 3;margin-bottom: 20px;}.boxbottombuttons {margin-right: 20px;}.topheading {margin-top: 50px;}"
         }
       </style>
       <Toaster
@@ -63,6 +64,7 @@ function Firststart() {
         }}
       />
       <div id="main">
+        <Progressindicator className="mainboxcenter" index={0} />
         <Heading className="mainboxcenter topheading">Welcome</Heading>
         <p className="mainboxcenter">
           Hello SQL Hero, Before we get started, we need to connect this app to
