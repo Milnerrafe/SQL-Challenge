@@ -1,0 +1,15 @@
+{
+  "name": "HeroTeam",
+  "questionnumber": 2,
+  "question": {
+    "title": "Assemble a Team",
+    "p1": "Now that you've identified the villains, it's time to put together a hero team to defeat them! Review the files and try to form a team who can really exploit each of their weaknesses.",
+    "p2": "There is one small problem, and I mean very small... our budget. We can only afford to pay up to 25,000 for this job, and not a cent more. I have this stick of gum in my pocket we could maybe throw in too... you know, if we're desperate.",
+    "p3": "Your answer for Scenario 2 will need to be a query that returns a single number that is the total cost of the team you have chosen. Insert this query into the Answer column of the Solutions table, like before.",
+    "p4": "null",
+    "submitbutton": "Submit"
+  },
+  "answersresponse": {
+    "iscorrect": "You've found the heroes for the job, now, you just have to find where those wretched rogues are holed up. There are quite a few locations in the Locations table, but an anonymous tipster has said that the Sector with the highest average EvilVibeScore houses our villains!"
+  }
+}

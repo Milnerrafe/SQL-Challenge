@@ -14,7 +14,7 @@ def setupmysqldb():
        )
        cursor = conn.cursor()
 
-       with open('script.sql', 'r') as f:
+       with open('script.sql', encoding="utf-8") as f:
            sql_script = f.read()
 
        statements = sqlparse.split(sql_script)
@@ -140,9 +140,9 @@ def qestsion():
             "p2": "Some of the things you might have to do using SQL (without us giving everything away) include: Select database, view tables, filter and sort outputs, and insert data.",
             "p3": "Note that we will be using specifically MySQL for this work. It is one of the many variants of SQL and other ones might have slightly different syntax. So, make sure you specify MySQL during your research.",
             "p4": "To get started, you will want to review the most recent incident logged in the database. You will need to write the right query to extract it from the database. For your first challenge, you will need to identify the fiendish villains behind this dastardly plot! Find the database you need to access and read the descriptions of each table in it to figure out where the information you need is stored, and how to submit your answers.",
-            "p5": "You will need to do a lot of Googling to crack this case, detective! If you are ever truly stuck, ask Leanna or Serhat for help and they can point you in the right direction. If you use ChatGPT, then the world will explode and you’ll be out of a job, so don’t do that. Good luck!"
+            "p5": "You will need to do a lot of Googling to crack this case, detective! If you are ever truly stuck, ask Leanna or Serhat for help and they can point you in the right direction. If you use ChatGPT, then the world will explode and you’ll be out of a job, so don’t do that. Good luck!",
+            "submitbutton": "Submit",
           },
-          "submitbutton": "Submit",
           "answersresponse": {
             "iscorrect": "You identified them! It's time to put together a hero team to defeat them in Scenario 2! Review the files, and try to form a team who can really exploit each of their weaknesses.",
             "redherring": "It seems like it could be these evildoers... but something doesn't add up. Dig into their history a little more, check the tables to see if there is something else on them. It might crack this case wide open."
@@ -174,7 +174,7 @@ def qestsion():
             "title": "Sectors",
             "p1": "You've found the heroes for the job, now, you just have to find where those wretched rogues are holed up. There are quite a few locations in the Locations table, but an anonymous tipster has said that the Sector with the highest average EvilVibeScore houses our villains!",
             "p2": "This might be a tough one... you will have to construct and submit a query that returns two columns. One with each of the Sectors, and one with the average EvilVibeScore for each to complete Scenario 3!",
-            "p3": "null",
+            "p3": "Try running the SQL query before you submit to ensure your SQL has no errors.",
             "p4": "null",
             "submitbutton": "Submit"
           },
@@ -447,43 +447,6 @@ def check():
                 return 'no'
     else:
         return 'error', 400
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

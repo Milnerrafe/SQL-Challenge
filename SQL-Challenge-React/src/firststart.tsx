@@ -13,7 +13,11 @@ function Firststart() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
+<<<<<<< Rafe
     fetch("http://10.253.204.3:8000/api/setup", {
+=======
+    fetch("http://10.253.204.4:8000/api/setup", {
+>>>>>>> main
       method: "POST",
       headers: {
         Accept: "application/json",
