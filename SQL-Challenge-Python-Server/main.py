@@ -174,7 +174,7 @@ def qestsion():
             "title": "Sectors",
             "p1": "You've found the heroes for the job, now, you just have to find where those wretched rogues are holed up. There are quite a few locations in the Locations table, but an anonymous tipster has said that the Sector with the highest average EvilVibeScore houses our villains!",
             "p2": "This might be a tough one... you will have to construct and submit a query that returns two columns. One with each of the Sectors, and one with the average EvilVibeScore for each to complete Scenario 3!",
-            "p3": "null",
+            "p3": "Try running the SQL query before you submit to ensure your SQL has no errors.",
             "p4": "null",
             "submitbutton": "Submit"
           },
