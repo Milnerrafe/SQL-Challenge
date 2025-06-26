@@ -53,7 +53,8 @@ function Server() {
         <Heading className="mainboxcenter topheading">Welcome</Heading>
         <p className="mainboxcenter">
           Please enter the web address of your Python server below, in the
-          format: http://your-address (do not include a trailing / at the end).
+          format: http://your-address:8000 (do not include a trailing / at the
+          end).
         </p>
 
         <TextInput

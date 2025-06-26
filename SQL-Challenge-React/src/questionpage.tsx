@@ -4,6 +4,7 @@ import "./App.scss";
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import Progressindicator from "./progressindicator.tsx";
+import Cookies from "js-cookie";
 
 function Questionpage() {
   const [data, setData] = useState(null);
@@ -12,7 +13,8 @@ function Questionpage() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch("http://10.253.204.3:8000/api/question");
+      const pyhost = Cookies.get("pyhost");
+      const response = await fetch(`${pyhost}/api/question`);
       const json = await response.json();
       setData(json);
       setLoading(false);
@@ -38,8 +40,8 @@ function Questionpage() {
   }, [fetchData]);
 
   const handleSubmit = () => {
-    console.log("1");
-    fetch("http://10.253.204.3:8000/api/check", {
+    const pyhost = Cookies.get("pyhost");
+    fetch(`${pyhost}/api/check`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -51,7 +53,6 @@ function Questionpage() {
     })
       .then((response) => response.text())
       .then((textResponse) => {
-        console.log("2");
         const responseVar = textResponse;
         if (responseVar === "yes") {
           toast.success(data.answersresponse.iscorrect);
