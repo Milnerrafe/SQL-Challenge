@@ -249,7 +249,7 @@ def check():
             conn.close()
 
             keywords = ["Hellakinetic", "Evil Her-mes", "Man in the Van", "Freeze Tag"]
-            redwords = [' MechAneurysm, Rat Run, Blasta la Vista, Never Mist']
+            redwords = ["MechAneurysm", "Rat Run", "Blasta la Vista", "Never Mist"]
 
             lower_text = sanwr.lower()
             matches = [word for word in keywords if word.lower() in lower_text]
