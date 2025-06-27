@@ -20,7 +20,7 @@ Once you have started the server, all you will need to do is help your players b
 
 ### Player Set Up
 
-First, let's set up how you are going to use SQL. There are many ways, and as long as it can connect to MySQL, it will work. Therefore, for we suggest the use of MySQL Workbench,  you can learn how to set it up  [here]([github.com/test](https://github.com/Milnerrafe/SQL-Challenge/blob/main/Setting%20Up%20a%20MySQL%20Workbench%20and%20Server%20on%20Windows.pdf)); we also advise against using a SQL tool that just lets you look at the tables like Excel, as doing this, you may not learn as much SQL. For those who are not familiar with SQL, our guide [here]([github.com/test](https://github.com/Milnerrafe/SQL-Challenge/blob/main/SQL%20Guide.pdf)) will help.
+First, let's set up how you are going to use SQL. There are many ways, and as long as it can connect to MySQL, it will work. Therefore, for we suggest the use of MySQL Workbench,  you can learn how to set it up  [here](https://github.com/Milnerrafe/SQL-Challenge/blob/main/Setting%20Up%20a%20MySQL%20Workbench%20and%20Server%20on%20Windows.pdf); we also advise against using a SQL tool that just lets you look at the tables like Excel, as doing this, you may not learn as much SQL. For those who are not familiar with SQL, our guide [here](https://github.com/Milnerrafe/SQL-Challenge/blob/main/SQL%20Guide.pdf) will help.
 
 Once you have SQL set up, you need to access the web app to get your detective tasks and check your answers. Go to: http://sql-challenge.milnerrafe.com/ or use the URL provided by your host, as the above site does not work on all networks and may not be hosted in to the future. 
 
